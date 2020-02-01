@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import AppendForm from './components/AppendForm';
+import LoadButton from './components/LoadButton';
+import StoreButton from './components/StoreButton';
+import FilterField from './components/FilterField';
+import List from './components/List';
 
-function App() {
-  return (
+const App = () => (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <FilterField />
+      <div className='row'>
+        <div className='column'>
+          <LoadButton />
+        </div>
+        <div className='column'>
+          <AppendForm />
+        </div>
+        <div className='column'>
+          <StoreButton />
+        </div>
+      </div>
+      <List />
     </div>
-  );
-}
+)
 
 export default App;
