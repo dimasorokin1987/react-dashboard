@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {storeItems} from '../thunks/store';
 
 const mapStateToProps = state => ({
+    items: state.list,
     disabled: state.save.saving
 });
 
