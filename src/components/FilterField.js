@@ -1,13 +1,23 @@
 import React from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {setFilterAction} from '../actions';
+//import {useDispatch, useSelector} from 'react-redux';
+import { connect } from 'react-redux';
+import {setFilterAction} from '../actions/filter';
 
-export default () => {
-    const dispatch = useDispatch();
-    const filterText = useSelector(state => state.filterText);
+const mapStateToProps = state => ({
+    filterText: state.filterText
+});
+
+const mapDispatchToProps = dispatch => ({
+  onChangeFilterText: text => dispatch(setFilterAction(text))
+});
+
+const FilterField = props => {
+    // const dispatch = useDispatch();
+    // const filterText = useSelector(state => state.filterText);
 
     const changeHandler = e => {
-        dispatch(setFilterAction(e.target.value));
+       //dispatch(setFilterAction(e.target.value));
+       props.onChangeFilterText(e.target.value);
     }
     return (
         <input
@@ -15,7 +25,9 @@ export default () => {
             style={{width:'30%'}}
             placeholder='search text'
             onChange={changeHandler}
-            value={filterText}
+            value={props.filterText}
         />
     )
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(FilterField);

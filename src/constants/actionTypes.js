@@ -10,3 +10,4 @@ export const SAVE_SUCCEEDED = 'SAVE_SUCCEEDED';
 export const SAVE_FAILED = 'SAVE_FAILED';
 
 export const SET_FILTER = 'SET_FILTER';
+export const CLEAR_FILTER = 'CLEAR_FILTER';

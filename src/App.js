@@ -7,21 +7,21 @@ import FilterField from './components/FilterField';
 import List from './components/List';
 
 const App = () => (
-    <div className="App">
-      <FilterField />
-      <div className='row'>
-        <div className='column'>
-          <LoadButton />
-        </div>
-        <div className='column'>
-          <AppendForm />
-        </div>
-        <div className='column'>
-          <StoreButton />
-        </div>
+  <div className="App">
+    <FilterField />
+    <div className='row'>
+      <div className='column'>
+        <LoadButton />
       </div>
-      <List />
+      <div className='column'>
+        <AppendForm />
+      </div>
+      <div className='column'>
+        <StoreButton />
+      </div>
     </div>
+    <List />
+  </div>
 )
 
 export default App;

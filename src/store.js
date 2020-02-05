@@ -17,5 +17,5 @@ export const store = createStore(
 );
 
 store.subscribe(()=>{
-    window.localStorage.setItem('reduxState', JSON.stringify(store.getState()));
+   // window.localStorage.setItem('reduxState', JSON.stringify(store.getState()));
 });
