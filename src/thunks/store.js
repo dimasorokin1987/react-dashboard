@@ -1,8 +1,13 @@
-import {savingAction, savedAction, saveErrorAction} from '../actions/save';
+import {
+    startNetworkAction,
+    finishNetworkAction,
+    savedAction,
+    networkErrorAction
+} from '../actions/network';
 import config from '../config';
 
 export const storeItems = (items) => async dispatch => {
-    dispatch(savingAction());
+    dispatch(startNetworkAction());
     try {
         const response = await fetch(config.apiUrl,{
             method: 'PUT', // *GET, POST, PUT, DELETE, etc.
@@ -21,6 +26,7 @@ export const storeItems = (items) => async dispatch => {
         console.log('store items response:',json);
         dispatch(savedAction(json));
     }catch(e){
-        dispatch(saveErrorAction(e));
+        dispatch(networkErrorAction(e));
     }
+    dispatch(finishNetworkAction());
 }

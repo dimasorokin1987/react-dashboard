@@ -10,6 +10,7 @@ import {FetchMock, fetchMock} from '@react-mock/fetch';
 import App from '../App';
 import {Provider} from 'react-redux';
 import {store} from '../store';
+import config from '../config'
 
 // beforeEach(() => {
 //   fetchMock.restore();
@@ -37,7 +38,8 @@ test('base functionality test', async() => {
     <FetchMock
       mocks={[
         {
-          matcher: 'https://k3nluu36pc.execute-api.ap-northeast-1.amazonaws.com/test111',
+          //matcher: 'https://k3nluu36pc.execute-api.ap-northeast-1.amazonaws.com/test111',
+          matcher: config.apiUrl,
           method: 'GET',
           response: {items: ['hellow','orld']}
         },
@@ -215,7 +217,7 @@ test('items load', async()=>{
     <FetchMock
       mocks={[
         {
-          matcher: 'https://k3nluu36pc.execute-api.ap-northeast-1.amazonaws.com/test111',
+          matcher: config.apiUrl,
           method: 'GET',
           response: {items: ['hellow','orld']}
         },

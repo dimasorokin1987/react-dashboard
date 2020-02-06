@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {loadItems} from '../thunks/load';
 
 const mapStateToProps = state => ({
-    disabled: state.load.loading
+    disabled: state.networking
 });
 
 const mapDispatchToProps = dispatch => ({

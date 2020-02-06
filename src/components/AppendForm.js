@@ -4,7 +4,8 @@ import {connect} from 'react-redux';
 import {appendAction} from '../actions';
 
 const mapStateToProps = state => ({
-    text: state.item
+    text: state.item,
+    disabled: state.networking
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -25,7 +26,10 @@ const AppendForm = props=>{
     return (
         <form onSubmit={submitHandler}>
             <Editor ref={editor}/>
-            <button className='btn green'>Append</button>
+            <button
+                className='btn green'
+                disabled={props.disabled}
+            >Append</button>
         </form>
     );
 }

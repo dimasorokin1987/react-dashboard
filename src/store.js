@@ -3,8 +3,9 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import reducer from './reducers';
 
-const reduxStateString = window.localStorage.getItem('reduxState');
-const reduxState = JSON.parse(reduxStateString)||{
+//const reduxStateString = window.localStorage.getItem('reduxState');
+//JSON.parse(reduxStateString)||
+const reduxState = {
     item: '',
     list: [],
     filterText: ''
