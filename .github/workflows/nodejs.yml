@@ -30,8 +30,11 @@ jobs:
     - name: Adding production git branch
       run: git branch production
     - name: Switching to production git branch
+      run: git checkout production
     - name: Add build folder to commit
-      run: git add ./build
+      run: git add -f ./build
+    - name: Committing updates
+      run: git commit -m "new production commit ${{github.sha}}" 
     - name: Pushing to production branch
       run: git push
       env:
