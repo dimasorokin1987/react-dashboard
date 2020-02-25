@@ -15,7 +15,7 @@ jobs:
     - name: Installing Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 12
     - name: Installing project dependencies
       run: npm install
     - name: Building project
@@ -26,6 +26,8 @@ jobs:
         CI: true
     - name: Changing folder to build
       run: cd build
+    - name: Add git remote origin
+      run: git remote add origin https://github.com/dimasorokin1987/react-dashboard-build
     - name: Add build folder to commit
       run: git add .
     - name: Committing updates
