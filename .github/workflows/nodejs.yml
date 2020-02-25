@@ -7,9 +7,8 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
+    
     strategy:
       matrix:
         node-version: [8.x, 10.x, 12.x]
@@ -27,15 +26,13 @@ jobs:
       run: npm run build --if-present
     - name: Running tests
       run: npm test
-    - name: Adding production git branch
-      run: git branch production
-    - name: Switching to production git branch
-      run: git checkout production
+    - name: Changing folder to build
+      run: cd build
     - name: Add build folder to commit
-      run: git add -f ./build
+      run: git add .
     - name: Committing updates
       run: git commit -m "new production commit ${{github.sha}}" 
     - name: Pushing to production branch
-      run: git push
+      run: git push origin master
       env:
         CI: true
