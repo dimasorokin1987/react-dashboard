@@ -22,6 +22,8 @@ jobs:
       run: npm run build --if-present
     - name: Running tests
       run: npm test
+      env:
+        CI: true
     - name: Changing folder to build
       run: cd build
     - name: Add build folder to commit
@@ -30,5 +32,4 @@ jobs:
       run: git commit -m "new production commit ${{github.sha}}" 
     - name: Pushing to production branch
       run: git push origin master
-      env:
-        CI: true
+
