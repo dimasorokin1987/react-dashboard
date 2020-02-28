@@ -24,14 +24,12 @@ jobs:
       run: npm test
       env:
         CI: true
-    - name: Changing folder to build
-      run: cd build
-    - name: Add git remote origin
-      run: git remote add origin https://github.com/dimasorokin1987/react-dashboard-build
-    - name: Add build folder to commit
-      run: git add .
-    - name: Committing updates
-      run: git commit -m "new production commit ${{github.sha}}" 
-    - name: Pushing to production branch
-      run: git push origin master
+    - name: Update build repo
+      run: |
+       git remote add -f origin_build https://github.com/dimasorokin1987/react-dashboard-build.git --squash
+       git subtree add --prefix build origin_build master --squash
+       git add ./build
+       git commit -m'build update'
+       git subtree push --prefix build origin_build master
+
 
