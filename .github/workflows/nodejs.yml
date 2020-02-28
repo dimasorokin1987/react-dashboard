@@ -34,6 +34,6 @@ jobs:
        #git subtree add --prefix=build origin_build master --squash
        git add -f ./build
        git commit -m'build update'
-       git subtree push --prefix build github master
+       git subtree push --prefix build github HEAD:${GITHUB_REF}
 
 
