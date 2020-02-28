@@ -30,7 +30,7 @@ jobs:
        git config user.name "$GITHUB_ACTOR"
        git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/dimasorokin1987/react-dashboard-build.git"
        echo pulling...
-       git pull github ${GITHUB_REF} --ff-only --allow-unrelated-histories
+       git pull github ${GITHUB_REF} --allow-unrelated-histories
        #git remote add -f origin_build https://github.com/dimasorokin1987/react-dashboard-build.git
        #git subtree add --prefix=build origin_build master --squash
        git add -f ./build
