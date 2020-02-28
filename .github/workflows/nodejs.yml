@@ -27,7 +27,7 @@ jobs:
     - name: Update build repo
       run: |
        git remote add -f origin_build https://github.com/dimasorokin1987/react-dashboard-build.git
-       git subtree add --prefix=build origin_build master --squash
+       #git subtree add --prefix=build origin_build master --squash
        git add ./build
        git commit -m'build update'
        git subtree push --prefix build origin_build master
