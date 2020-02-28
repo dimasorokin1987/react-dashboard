@@ -26,14 +26,14 @@ jobs:
         CI: true
     - name: Update build repo
       run: |
-       echo $GITHUB_ACTOR
        git config user.email "$GITHUB_ACTOR@gmail.com"
        git config user.name "$GITHUB_ACTOR"
-       git remote add origin_build "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/dimasorokin1987/react-dashboard-build.git"
-       #git remote add -f origin_build https://github.com/dimasorokin1987/react-dashboard-build.git
+       git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/dimasorokin1987/react-dashboard-build.git"
+       git pull github ${GITHUB_REF} --ff-only
+      #git remote add -f origin_build https://github.com/dimasorokin1987/react-dashboard-build.git
        #git subtree add --prefix=build origin_build master --squash
        git add -f ./build
        git commit -m'build update'
-       git subtree push --prefix build origin_build master
+       git subtree push --prefix build github master
 
 
