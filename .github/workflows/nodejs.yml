@@ -27,8 +27,8 @@ jobs:
     - name: Deploying
       run: |
        #npm run deploy
-       npm i gh-pages-deploy
-       gh-pages-deploy -- 'deploy commit'
+       npm i gh-pages
+       gh-pages -d build
        #git config user.email "$GITHUB_ACTOR@gmail.com"
        #git config user.name "$GITHUB_ACTOR"
        #git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/dimasorokin1987/react-dashboard-build.git"
